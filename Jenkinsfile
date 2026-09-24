@@ -5,17 +5,13 @@ pipeline {
 
         stage('Maven Compile') {
             steps {
-                dir('hello-maven') {
-                    bat '"D:\\Download\\apache-maven-3.9.16-bin\\apache-maven-3.9.16\\bin\\mvn.cmd" compile'
-                }
+                bat '"D:\\Download\\apache-maven-3.9.16-bin\\apache-maven-3.9.16\\bin\\mvn.cmd" compile'
             }
         }
 
         stage('Maven Package') {
             steps {
-                dir('hello-maven') {
-                    bat '"D:\\Download\\apache-maven-3.9.16-bin\\apache-maven-3.9.16\\bin\\mvn.cmd" clean package'
-                }
+                bat '"D:\\Download\\apache-maven-3.9.16-bin\\apache-maven-3.9.16\\bin\\mvn.cmd" clean package'
             }
         }
 
