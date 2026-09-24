@@ -2,10 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Run Python') {
+
+        stage('Maven Compile') {
             steps {
-                bat '"C:\\Users\\HP\\AppData\\Local\\Python\\bin\\python.exe" hello.py'
+                dir('hello-maven') {
+                    bat 'mvn compile'
+                }
             }
         }
+
+        stage('Maven Package') {
+            steps {
+                dir('hello-maven') {
+                    bat 'mvn clean package'
+                }
+            }
+        }
+
     }
 }
